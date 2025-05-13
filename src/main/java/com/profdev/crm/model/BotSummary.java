@@ -25,4 +25,7 @@ public class BotSummary {
     @ManyToOne
     @JoinColumn(name = "tenant_id")
     private Tenant tenant;
+    @ManyToOne
+    @JoinColumn(name = "chat_id")
+    private Chat chat;
 }

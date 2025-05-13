@@ -31,4 +31,8 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User createdBy;
+
+    @ManyToOne
+    @JoinColumn(name = "chat_session_id")
+    private ChatSession chatSession;
 }
