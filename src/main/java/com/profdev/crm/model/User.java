@@ -35,6 +35,7 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "tenant_id")
+    @JsonIgnore
     private Tenant tenant;
 
     @OneToMany(mappedBy = "createdBy")
@@ -49,10 +50,12 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "supervisor_id")
+    @JsonIgnore
     private User supervisor;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
+    @JsonIgnore
     private Department department;
 
     @Enumerated(EnumType.STRING)

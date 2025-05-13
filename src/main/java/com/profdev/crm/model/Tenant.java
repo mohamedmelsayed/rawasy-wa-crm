@@ -35,32 +35,42 @@ public class Tenant {
     private String whatsappWebhookUrl;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<User> users;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<Customer> customers;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<Campaign> campaigns;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<Subscription> subscriptions;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<MessageTemplate> messageTemplates;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<MarketingGroup> marketingGroups;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<LookupTable> lookupTables;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<Ticket> tickets;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<Quotation> quotations;
 
     @OneToMany(mappedBy = "tenant")
+    @JsonIgnore
     private List<Feedback> feedbacks;
 }
