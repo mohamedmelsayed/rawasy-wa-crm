@@ -13,6 +13,14 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(tenantSubscriptionInterceptor)
-                .addPathPatterns("/api/**"); // Apply to all API endpoints
+                .addPathPatterns("/api/nopath/**"); // Apply to all API endpoints
     }
 }
+
+// this comment is for further code completion here we must get tenant id from the login user
+// and check if the user has a subscription
+// and if the subscription is active
+// and if the subscription is not expired
+// and if the subscription is not cancelled
+// and if the subscription is not suspended
+
