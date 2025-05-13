@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WhatsApp CRM SaaS MVP - Product Requirements Document</title>
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background: #fefefe;
+    color: #222;
+    line-height: 1.5;
+  }
+  h1, h2, h3 {
+    color: #2c3e50;
+    margin-top: 1.2em;
+  }
+  h1 {
+    border-bottom: 3px solid #34495e;
+    padding-bottom: 10px;
+  }
+  section {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  ul {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+  ol {
+    margin-left: 20px;
+    list-style-type: decimal;
+  }
+  .button-wrapper {
+    margin: 30px 0;
+  }
+  button {
+    background-color: #34495e;
+    border: none;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #2c3e50;
+  }
+</style>
+</head>
+<body>
+  <h1>WhatsApp CRM SaaS MVP - Product Requirements Document</h1>
+
+  <section>
+    <h2>1. Project Overview</h2>
+    <p>
+      The WhatsApp CRM SaaS MVP project aims to deliver a multi-tenant, cloud-based customer relationship management platform integrated with WhatsApp messaging. It enables multiple client organizations to manage customer interactions via WhatsApp, automate replies, categorize intents, and route tasks to their respective support and sales teams. The platform supports role-based access, extensive reporting, customer reviews, and subscription-based billing.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Background & Problem Statement</h2>
+    <p>
+      Businesses require scalable and flexible CRM solutions accessible over the cloud without managing infrastructure. WhatsApp is a widely used communication channel, but integration into CRM systems is often complex and costly. This SaaS platform seeks to simplify deployment, provide automated WhatsApp interaction handling, and enable organizations to subscribe and customize the services per their needs.
+    </p>
+  </section>
+
+  <section>
+    <h2>3. Goals and Objectives</h2>
+    <ul>
+      <li>Provide a scalable multi-tenant CRM platform handling WhatsApp customer interactions for multiple organizations.</li>
+      <li>Enable automated, lookup-driven bot replies to customers.</li>
+      <li>Support ticket and quotation management segregated by tenant/customer organization.</li>
+      <li>Facilitate role-based access within each client organization (employees, managers).</li>
+      <li>Offer subscription management and billing for SaaS tenants.</li>
+      <li>Provide customizable reporting per tenant and aggregate usage insights for the platform.</li>
+      <li>Allow customers from client organizations to submit reviews on their experience.</li>
+      <li>Ensure robust data isolation and security between tenants.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. User Roles and Personas</h2>
+    <ul>
+      <li><strong>Tenant Administrator:</strong> Manages the client organization account, user invitations, subscription plan, and lookup tables.</li>
+      <li><strong>Client Organization Employees:</strong> Customer care and sales employees assigned roles within their tenant organization.</li>
+      <li><strong>Managers:</strong> Oversee their organization's support & sales teams and view reports.</li>
+      <li><strong>Platform Administrator:</strong> Manages SaaS platform infrastructure, subscription plans, tenant onboarding and compliance.</li>
+      <li><strong>Clients (End Customers):</strong> Contact client organizations via WhatsApp and interact with the automated bot and employees.</li>
+      <li><strong>Bot:</strong> Multi-tenant aware automated reply and categorization engine driven by tenant-specific lookup tables.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Data Entities & Lookup Tables</h2>
+    <ul>
+      <li><strong>Tenant:</strong> Represents each client organization subscribing to the SaaS platform.</li>
+      <li><strong>Customer Entity:</strong> Stores customer profile and interaction data scoped to a tenant.</li>
+      <li><strong>Lookup Tables:</strong> Per-tenant dynamic tables for services, products, and issues. Enables customized bot categorization per tenant.</li>
+      <li><strong>Subscription:</strong> Tenant subscription plans and usage.</li>
+      <li>All data isolated between tenants to ensure security and privacy.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Functional Requirements</h2>
+    <ol>
+      <li><strong>Multi-Tenant Message Reception:</strong> Receive WhatsApp messages routed to correct tenant based on phone number or identifier.</li>
+      <li><strong>Bot Reply & Categorization:</strong> Tenant-specific automated replies and categorization using tenant-managed lookup tables.</li>
+      <li><strong>Ticket & Quotation Management:</strong> Segregated management per tenant with role-based controls.</li>
+      <li><strong>User Management:</strong> Tenant administrator can manage users and roles inside their tenant.</li>
+      <li><strong>Subscription & Billing:</strong> Supports subscription plans, billing cycles, payment management, and usage tracking for tenants.</li>
+      <li><strong>Reporting:</strong> Customized reports scoped per tenant and aggregate SaaS usage reporting for platform admins.</li>
+      <li><strong>Customer Reviews:</strong> Customers can submit feedback per tenant organization; tenant managers can view reports.</li>
+      <li><strong>Lookup Table Management:</strong> Tenant administrators can update their lookup tables to tune bot responses.</li>
+      <li><strong>Notifications:</strong> Alert relevant users on ticket or quotation assignments inside tenant.</li>
+      <li><strong>Tenant Onboarding & Offboarding:</strong> Smooth processes for tenant sign-up, setup, and data removal.</li>
+      <li><strong>Data Export & Compliance:</strong> Data export features per tenant and compliance with privacy regulations like GDPR.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>7. Non-Functional Requirements</h2>
+    <ul>
+      <li>Scalable cloud infrastructure supporting concurrent multi-tenant use.</li>
+      <li>High availability and disaster recovery mechanisms.</li>
+      <li>Strong data isolation and security per tenant.</li>
+      <li>Performance: Target response time &lt; 2 seconds for bot replies across tenants.</li>
+      <li>API rate limiting and throttling per tenant.</li>
+      <li>Mobile responsive design for employee and manager dashboards.</li>
+      <li>Secure authentication supporting multi-tenancy, with options for SSO integration per tenant.</li>
+      <li>Auditing and logging at tenant and platform level.</li>
+      <li>Compliance with data protection regulations (GDPR, CCPA).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>8. User Stories</h2>
+    <ul>
+      <li><strong>As a tenant admin,</strong> I want to manage the subscription plan and users of my organization, so I can control access and billing.</li>
+      <li><strong>As a tenant customer care employee,</strong> I want to handle tickets specific to my organization with relevant customer data accessible.</li>
+      <li><strong>As a tenant sales employee,</strong> I want to manage quotations for my organization efficiently.</li>
+      <li><strong>As a platform administrator,</strong> I want to monitor overall SaaS usage and support tenant onboarding.</li>
+      <li><strong>As a client,</strong> I want to interact with an automated WhatsApp bot tailored to my organization's offerings.</li>
+      <li><strong>As a tenant manager,</strong> I want to generate reports and tune lookup tables for better bot accuracy.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>9. Workflow</h2>
+    <p>
+      1. Tenant subscribes and configures their WhatsApp connection.<br />
+      2. Customers send WhatsApp messages identified to tenant account.<br />
+      3. Bot processes messages using tenant's lookup tables and replies.<br />
+      4. Tickets and quotations managed per tenant with appropriate roles.<br />
+      5. Tenant managers view reports and update lookup tables.<br />
+      6. Platform administrator monitors overall system health and tenant usage.<br />
+      7. Customers can submit reviews linked to tenant organizations.<br />
+      8. Tenants manage billing and subscription lifecycle.
+    </p>
+  </section>
+
+  <section>
+    <h2>10. Reporting and Analytics</h2>
+    <ul>
+      <li>Tenant-level detailed reports: tickets, quotations, user activities, and customer feedback.</li>
+      <li>Platform-level metrics: tenant onboarding, subscription revenue, usage patterns.</li>
+      <li>Audit logs for security and compliance.</li>
+      <li>Lookup table update tracking per tenant.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>11. Review and Feedback System</h2>
+    <ul>
+      <li>Tenant-specific customer feedback collection with rating and comments.</li>
+      <li>Alerts for negative feedback to tenant managers.</li>
+      <li>Aggregated feedback reports accessible by tenant managers.</li>
+      <li>Platform monitoring for overall feedback trends.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>12. Assumptions and Dependencies</h2>
+    <ul>
+      <li>WhatsApp Business API supports multi-tenant use or tenants have separate WhatsApp numbers.</li>
+      <li>Cloud infrastructure providers support the required scalability and security needs.</li>
+      <li>Subscription billing integration with a payment gateway or service.</li>
+      <li>Tenants comply with their own regional data privacy laws; platform ensures baseline GDPR compliance.</li>
+      <li>Bot categorization leverages tenant-configured lookup tables with optional NLP enhancements.</li>
+      <li>Authentication supports multi-tenant segregation and optionally SSO per tenant.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>13. Glossary</h2>
+    <ul>
+      <li><strong>Tenant:</strong> An individual client organization subscribing to the SaaS platform.</li>
+      <li><strong>Subscription:</strong> The billing plan a tenant has subscribed for platform services.</li>
+      <li><strong>Multi-Tenant Architecture:</strong> Software design supporting multiple client organizations with data and configuration isolation.</li>
+      <li><strong>Lookup Tables:</strong> Tenant-specific dynamic datasets for bot categorization.</li>
+      <li><strong>Bot:</strong> Automated WhatsApp message handler customized per tenant.</li>
+      <li><strong>Ticket:</strong> Customer support case linked to tenant data.</li>
+      <li><strong>Quotation:</strong> Sales draft linked to tenant customers.</li>
+    </ul>
+  </section>
+
+  <div class="button-wrapper">
+    <button id="downloadPdfBtn">Download SaaS PRD PDF</button>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  // Utility: add wrapped text with pagination support
+  function addWrappedText(doc, text, x, y, maxWidth, lineHeight) {
+    const lines = doc.splitTextToSize(text, maxWidth);
+    for (const line of lines) {
+      if (y + lineHeight > doc.internal.pageSize.height - 40) {
+        doc.addPage();
+        y = 40;
+      }
+      doc.text(line, x, y);
+      y += lineHeight;
+    }
+    return y;
+  }
+
+  document.getElementById('downloadPdfBtn').addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+
+    const leftMargin = 40;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const maxLineWidth = pageWidth - leftMargin * 2;
+    const lineHeight = 18;
+    let y = 40;
+
+    // Title
+    doc.setFontSize(22);
+    doc.setTextColor('#34495e');
+    doc.setFont('helvetica', 'bold');
+    doc.text("WhatsApp CRM SaaS MVP - Product Requirements Document", leftMargin, y);
+    y += lineHeight * 2;
+
+    // Function to add section heading
+    function addSectionHeading(title) {
+      if (y + lineHeight*2 > doc.internal.pageSize.height - 40) {
+        doc.addPage();
+        y = 40;
+      }
+      doc.setFontSize(16);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor('#2c3e50');
+      doc.text(title, leftMargin, y);
+      y += lineHeight * 1.3;
+    }
+
+    // Function to add paragraph
+    function addParagraph(text) {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor('#222');
+      y = addWrappedText(doc, text, leftMargin, y, maxLineWidth, lineHeight);
+      y += lineHeight / 2;
+    }
+
+    // Function to add bullet list
+    function addBulletList(items) {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor('#222');
+      for (const item of items) {
+        if (typeof item === 'string') {
+          if (y + lineHeight > doc.internal.pageSize.height - 40) {
+            doc.addPage();
+            y = 40;
+          }
+          const bullet = "\u2022 ";
+          const lines = doc.splitTextToSize(item, maxLineWidth - 15);
+          doc.text(bullet + lines[0], leftMargin, y);
+          y += lineHeight;
+          for (let i = 1; i < lines.length; i++) {
+            if (y + lineHeight > doc.internal.pageSize.height - 40) {
+              doc.addPage();
+              y = 40;
+            }
+            doc.text("  " + lines[i], leftMargin + 10, y);
+            y += lineHeight;
+          }
+        } else if (typeof item === 'object' && Array.isArray(item)) {
+          y = addBulletList(item);
+        }
+      }
+      y += lineHeight / 2;
+      return y;
+    }
+
+    // Function to add numbered list
+    function addNumberedList(items) {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor('#222');
+      let num = 1;
+      for (const item of items) {
+        if (y + lineHeight > doc.internal.pageSize.height - 40) {
+          doc.addPage();
+          y = 40;
+        }
+        const numStr = num.toString() + ". ";
+        const lines = doc.splitTextToSize(item, maxLineWidth - 20);
+        doc.text(numStr + lines[0], leftMargin, y);
+        y += lineHeight;
+        for (let i = 1; i < lines.length; i++) {
+          if (y + lineHeight > doc.internal.pageSize.height - 40) {
+            doc.addPage();
+            y = 40;
+          }
+          doc.text("   " + lines[i], leftMargin + 15, y);
+          y += lineHeight;
+        }
+        num++;
+      }
+      y += lineHeight / 2;
+      return y;
+    }
+
+    // Document Content Sections
+    addSectionHeading("1. Project Overview");
+    addParagraph("The WhatsApp CRM SaaS MVP project aims to deliver a multi-tenant, cloud-based customer relationship management platform integrated with WhatsApp messaging. It enables multiple client organizations to manage customer interactions via WhatsApp, automate replies, categorize intents, and route tasks to their respective support and sales teams. The platform supports role-based access, extensive reporting, customer reviews, and subscription-based billing.");
+
+    addSectionHeading("2. Background & Problem Statement");
+    addParagraph("Businesses require scalable and flexible CRM solutions accessible over the cloud without managing infrastructure. WhatsApp is a widely used communication channel, but integration into CRM systems is often complex and costly. This SaaS platform seeks to simplify deployment, provide automated WhatsApp interaction handling, and enable organizations to subscribe and customize the services per their needs.");
+
+    addSectionHeading("3. Goals and Objectives");
+    addBulletList([
+      "Provide a scalable multi-tenant CRM platform handling WhatsApp customer interactions for multiple organizations.",
+      "Enable automated, lookup-driven bot replies to customers.",
+      "Support ticket and quotation management segregated by tenant/customer organization.",
+      "Facilitate role-based access within each client organization (employees, managers).",
+      "Offer subscription management and billing for SaaS tenants.",
+      "Provide customizable reporting per tenant and aggregate usage insights for the platform.",
+      "Allow customers from client organizations to submit reviews on their experience.",
+      "Ensure robust data isolation and security between tenants."
+    ]);
+
+    addSectionHeading("4. User Roles and Personas");
+    addBulletList([
+      "Tenant Administrator: Manages the client organization account, user invitations, subscription plan, and lookup tables.",
+      "Client Organization Employees: Customer care and sales employees assigned roles within their tenant organization.",
+      "Managers: Oversee their organization's support & sales teams and view reports.",
+      "Platform Administrator: Manages SaaS platform infrastructure, subscription plans, tenant onboarding and compliance.",
+      "Clients (End Customers): Contact client organizations via WhatsApp and interact with the automated bot and employees.",
+      "Bot: Multi-tenant aware automated reply and categorization engine driven by tenant-specific lookup tables."
+    ]);
+
+    addSectionHeading("5. Data Entities & Lookup Tables");
+    addBulletList([
+      "Tenant: Represents each client organization subscribing to the SaaS platform.",
+      "Customer Entity: Stores customer profile and interaction data scoped to a tenant.",
+      "Lookup Tables: Per-tenant dynamic tables for services, products, and issues. Enables customized bot categorization per tenant.",
+      "Subscription: Tenant subscription plans and usage.",
+      "All data isolated between tenants to ensure security and privacy."
+    ]);
+
+    addSectionHeading("6. Functional Requirements");
+    addNumberedList([
+      "Multi-Tenant Message Reception: Receive WhatsApp messages routed to correct tenant based on phone number or identifier.",
+      "Bot Reply & Categorization: Tenant-specific automated replies and categorization using tenant-managed lookup tables.",
+      "Ticket & Quotation Management: Segregated management per tenant with role-based controls.",
+      "User Management: Tenant administrator can manage users and roles inside their tenant.",
+      "Subscription & Billing: Supports subscription plans, billing cycles, payment management, and usage tracking for tenants.",
+      "Reporting: Customized reports scoped per tenant and aggregate SaaS usage reporting for platform admins.",
+      "Customer Reviews: Customers can submit feedback per tenant organization; tenant managers can view reports.",
+      "Lookup Table Management: Tenant administrators can update their lookup tables to tune bot responses.",
+      "Notifications: Alert relevant users on ticket or quotation assignments inside tenant.",
+      "Tenant Onboarding & Offboarding: Smooth processes for tenant sign-up, setup, and data removal.",
+      "Data Export & Compliance: Data export features per tenant and compliance with privacy regulations like GDPR."
+    ]);
+
+    addSectionHeading("7. Non-Functional Requirements");
+    addBulletList([
+      "Scalable cloud infrastructure supporting concurrent multi-tenant use.",
+      "High availability and disaster recovery mechanisms.",
+      "Strong data isolation and security per tenant.",
+      "Performance: Target response time < 2 seconds for bot replies across tenants.",
+      "API rate limiting and throttling per tenant.",
+      "Mobile responsive design for employee and manager dashboards.",
+      "Secure authentication supporting multi-tenancy, with options for SSO integration per tenant.",
+      "Auditing and logging at tenant and platform level.",
+      "Compliance with data protection regulations (GDPR, CCPA)."
+    ]);
+
+    addSectionHeading("8. User Stories");
+    addBulletList([
+      "As a tenant admin, I want to manage the subscription plan and users of my organization, so I can control access and billing.",
+      "As a tenant customer care employee, I want to handle tickets specific to my organization with relevant customer data accessible.",
+      "As a tenant sales employee, I want to manage quotations for my organization efficiently.",
+      "As a platform administrator, I want to monitor overall SaaS usage and support tenant onboarding.",
+      "As a client, I want to interact with an automated WhatsApp bot tailored to my organization's offerings.",
+      "As a tenant manager, I want to generate reports and tune lookup tables for better bot accuracy."
+    ]);
+
+    addSectionHeading("9. Workflow");
+    addParagraph("1. Tenant subscribes and configures their WhatsApp connection.<br />2. Customers send WhatsApp messages identified to tenant account.<br />3. Bot processes messages using tenant's lookup tables and replies.<br />4. Tickets and quotations managed per tenant with appropriate roles.<br />5. Tenant managers view reports and update lookup tables.<br />6. Platform administrator monitors overall system health and tenant usage.<br />7. Customers can submit reviews linked to tenant organizations.<br />8. Tenants manage billing and subscription lifecycle.");
+
+    addSectionHeading("10. Reporting and Analytics");
+    addBulletList([
+      "Tenant-level detailed reports: tickets, quotations, user activities, and customer feedback.",
+      "Platform-level metrics: tenant onboarding, subscription revenue, usage patterns.",
+      "Audit logs for security and compliance.",
+      "Lookup table update tracking per tenant."
+    ]);
+
+    addSectionHeading("11. Review and Feedback System");
+    addBulletList([
+      "Tenant-specific customer feedback collection with rating and comments.",
+      "Alerts for negative feedback to tenant managers.",
+      "Aggregated feedback reports accessible by tenant managers.",
+      "Platform monitoring for overall feedback trends."
+    ]);
+
+    addSectionHeading("12. Assumptions and Dependencies");
+    addBulletList([
+      "WhatsApp Business API supports multi-tenant use or tenants have separate WhatsApp numbers.",
+      "Cloud infrastructure providers support the required scalability and security needs.",
+      "Subscription billing integration with a payment gateway or service.",
+      "Tenants comply with their own regional data privacy laws; platform ensures baseline GDPR compliance.",
+      "Bot categorization leverages tenant-configured lookup tables with optional NLP enhancements.",
+      "Authentication supports multi-tenant segregation and optionally SSO per tenant."
+    ]);
+
+    addSectionHeading("13. Glossary");
+    addBulletList([
+      "Tenant: An individual client organization subscribing to the SaaS platform.",
+      "Subscription: The billing plan a tenant has subscribed for platform services.",
+      "Multi-Tenant Architecture: Software design supporting multiple client organizations with data and configuration isolation.",
+      "Lookup Tables: Tenant-specific dynamic datasets for bot categorization.",
+      "Bot: Automated WhatsApp message handler customized per tenant.",
+      "Ticket: Customer support case linked to tenant data.",
+      "Quotation: Sales draft linked to tenant customers."
+    ]);
+
+    // Save PDF
+    doc.save("WhatsApp-CRM-PRD-SaaS.pdf");
+  });
+</script>
+</body>
+</html>
+
