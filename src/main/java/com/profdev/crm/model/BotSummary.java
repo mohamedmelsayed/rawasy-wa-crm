@@ -14,7 +14,6 @@ public class BotSummary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
     private String summary;
     private LocalDateTime createdAt;
     // Add conversation/session id if needed
