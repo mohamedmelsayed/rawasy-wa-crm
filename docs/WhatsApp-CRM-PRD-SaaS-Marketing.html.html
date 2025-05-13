@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WhatsApp CRM SaaS MVP - Product Requirements Document with Marketing</title>
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background: #fefefe;
+    color: #222;
+    line-height: 1.5;
+  }
+  h1, h2, h3 {
+    color: #2c3e50;
+    margin-top: 1.2em;
+  }
+  h1 {
+    border-bottom: 3px solid #34495e;
+    padding-bottom: 10px;
+  }
+  section {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  ul {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+  ol {
+    margin-left: 20px;
+    list-style-type: decimal;
+  }
+  .button-wrapper {
+    margin: 30px 0;
+  }
+  button {
+    background-color: #34495e;
+    border: none;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #2c3e50;
+  }
+</style>
+</head>
+<body>
+  <h1>WhatsApp CRM SaaS MVP - Product Requirements Document with Marketing</h1>
+
+  <section>
+    <h2>1. Project Overview</h2>
+    <p>
+      The WhatsApp CRM SaaS MVP project delivers a multi-tenant, cloud-based customer relationship management platform integrated with WhatsApp messaging. It enables client organizations to manage customer interactions, automate replies, categorize intents, route tasks, and run targeted marketing campaigns using WhatsApp promotions. The platform supports role-based access, reporting, customer reviews, and subscription billing.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Background & Problem Statement</h2>
+    <p>
+      Businesses need scalable CRM solutions that integrate WhatsApp for both customer service and marketing outreach without infrastructure hassles. Integration with WhatsApp for automated communication and promotions is complex and costly. This SaaS platform simplifies deployment, automated interaction handling, and marketing campaign management.
+    </p>
+  </section>
+
+  <section>
+    <h2>3. Goals and Objectives</h2>
+    <ul>
+      <li>Provide multi-tenant CRM handling WhatsApp customer interactions and marketing campaigns.</li>
+      <li>Enable automated, lookup-driven bot replies.</li>
+      <li>Support ticket and quotation management per tenant.</li>
+      <li>Facilitate WhatsApp promotion campaigns targeting contacts uploaded or from existing customers.</li>
+      <li>Support management of WhatsApp Meta message templates used for promotions.</li>
+      <li>Role-based access with dedicated marketing users.</li>
+      <li>Subscription management and billing.</li>
+      <li>Customizable reporting and customer feedback.</li>
+      <li>Data isolation and tenant security.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. User Roles and Personas</h2>
+    <ul>
+      <li><strong>Tenant Administrator:</strong> Manages tenant account, users, subscription, lookup tables, and message templates.</li>
+      <li><strong>Customer Care Employee:</strong> Handles support tickets.</li>
+      <li><strong>Sales Employee:</strong> Manages quotations.</li>
+      <li><strong>Marketing Employee:</strong> Creates and manages WhatsApp promotional campaigns, uploads contact lists, and uses message templates.</li>
+      <li><strong>Managers:</strong> Oversee their organizations’ teams and view reports.</li>
+      <li><strong>Platform Administrator:</strong> Manages SaaS platform, subscriptions, and tenant onboarding.</li>
+      <li><strong>Clients (End Customers):</strong> Recipients of support, sales communication and promotional campaigns via WhatsApp.</li>
+      <li><strong>Bot:</strong> Multi-tenant aware automated reply engine using tenant lookup tables and templates.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Data Entities & Lookup Tables</h2>
+    <ul>
+      <li><strong>Tenant:</strong> Client organization subscribing to platform services.</li>
+      <li><strong>Customer Entity:</strong> Stores customer profiles, preferences, interaction, and marketing consent status.</li>
+      <li><strong>Lookup Tables:</strong> Per-tenant dynamic tables for services, products, issues, supporting bot categorization.</li>
+      <li><strong>Subscription:</strong> Tenant plan and billing details.</li>
+      <li><strong>Message Templates:</strong> WhatsApp Meta-approved templates stored per tenant for promotional and transactional messaging.</li>
+      <li><strong>Marketing Contacts:</strong> Contacts uploaded by marketing users or existing customers marked as eligible for campaigns.</li>
+      <li>Data isolation ensures tenant data privacy and compliance.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Functional Requirements</h2>
+    <ol>
+      <li><strong>Multi-Tenant WhatsApp Messaging:</strong> Receive customer messages routed appropriately per tenant.</li>
+      <li><strong>Bot Automated Replies:</strong> Tenant-specific replies and categorization using lookup tables.</li>
+      <li><strong>Ticket & Quotation Management:</strong> Segregated and role-based.</li>
+      <li><strong>User and Role Management:</strong> Tenant admin manages tenant users with roles including marketing.</li>
+      <li><strong>Subscription & Billing:</strong> Tenant subscription lifecycle management.</li>
+      <li><strong>Reporting:</strong> Tenant and platform level reporting.</li>
+      <li><strong>Customer Reviews:</strong> Post-interaction feedback collection.</li>
+      <li><strong>Lookup Table & Template Management:</strong> Tenant admin can manage services, products, issues, and WhatsApp Meta message templates.</li>
+      <li><strong>Promotional Campaigns:</strong>
+        <ul>
+          <li>Marketing users can create campaigns targeting uploaded contact lists or existing customers with marketing consent.</li>
+          <li>Manage campaign scheduling, message template selection, and batch sending.</li>
+          <li>Campaign performance tracking (delivery, read, response rates).</li>
+        </ul>
+      </li>
+      <li><strong>Marketing Contacts Upload:</strong> Bulk upload via CSV or similar format with validation and opt-in management.</li>
+      <li><strong>Notifications:</strong> Alert employees of assignments and campaign statuses.</li>
+      <li><strong>Tenant Onboarding/Offboarding and Data Compliance:</strong> Smooth setup and secure data management aligned with regulations.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>7. Non-Functional Requirements</h2>
+    <ul>
+      <li>Scalable cloud infrastructure supporting multi-tenant use and large campaign message volumes.</li>
+      <li>High availability and disaster recovery.</li>
+      <li>Strong multi-tenant data isolation and security.</li>
+      <li>Performance: Maintain fast bot replies & reliable campaign delivery.</li>
+      <li>Rate limiting and throttling on campaign sends to comply with WhatsApp rules.</li>
+      <li>Responsive UI suitable for desktop and tablets.</li>
+      <li>Secure authentication supporting multi-tenant roles and optional SSO.</li>
+      <li>Audit logs for key actions including campaign sends and template changes.</li>
+      <li>Compliance with data protection laws (GDPR, CCPA).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>8. User Stories</h2>
+    <ul>
+      <li><strong>As a marketing employee,</strong> I want to upload contact lists or select existing customers to run targeted WhatsApp campaigns.</li>
+      <li><strong>As a marketing employee,</strong> I want to manage WhatsApp Meta message templates to ensure compliance and messaging consistency.</li>
+      <li><strong>As a marketing employee,</strong> I want to schedule campaigns and track delivery and engagement metrics.</li>
+      <li><strong>As a tenant admin,</strong> I want to manage users including marketing roles and control access.</li>
+      <li><strong>As a tenant manager,</strong> I want to view campaign performance reports and customer feedback.</li>
+      <li><strong>As a client,</strong> I want to receive relevant promotions via WhatsApp with opt-in consent respected.</li>
+      <li><strong>As a platform administrator,</strong> I want to monitor overall campaign volumes and ensure platform reliability.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>9. Workflow</h2>
+    <p>
+      1. Tenant subscribes and configures WhatsApp integration.<br />
+      2. Marketing user uploads contacts or selects existing customers with consent.<br />
+      3. Marketing user creates campaign selecting message template, recipients, and schedule.<br />
+      4. Campaign messages sent respecting WhatsApp message templates and throttling rules.<br />
+      5. Customers receive promotions via WhatsApp.<br />
+      6. Campaign metrics collected and displayed.<br />
+      7. Marketing and tenant managers monitor campaign effectiveness.<br />
+      8. Regular support and sales ticket/quotation flows continue alongside campaigns.<br />
+      9. Platform admin oversees SaaS operations and tenant compliance.
+    </p>
+  </section>
+
+  <section>
+    <h2>10. Reporting and Analytics</h2>
+    <ul>
+      <li>Campaign delivery, read, and response rates.</li>
+      <li>Customer opt-in/out status management and reporting.</li>
+      <li>Ticket and quotation metrics per tenant.</li>
+      <li>User performance and activity logs.</li>
+      <li>Template usage and updates audit trail.</li>
+      <li>Platform-wide campaign volume and revenue summaries.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>11. Review and Feedback System</h2>
+    <ul>
+      <li>Feedback collection including post-campaign satisfaction surveys.</li>
+      <li>Alerts on negative feedback to tenant marketing and support managers.</li>
+      <li>Aggregated tenant and platform level feedback reporting.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>12. Assumptions and Dependencies</h2>
+    <ul>
+      <li>WhatsApp Business API supports campaign sending using Meta message templates and multi-tenant routing.</li>
+      <li>Tenants will comply with opt-in marketing regulations.</li>
+      <li>Payment gateway integration for subscriptions and potential SMS/message billing.</li>
+      <li>Cloud infrastructure supports scalable batch messaging and data isolation.</li>
+      <li>Bot categorization uses tenant lookup tables enhanced by message templates.</li>
+      <li>Authentication supports multi-tenant roles including marketing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>13. Glossary</h2>
+    <ul>
+      <li><strong>Marketing Employee:</strong> Role responsible for campaign management, contacts, and templates.</li>
+      <li><strong>Campaign:</strong> A WhatsApp promotional messaging effort targeting contacts.</li>
+      <li><strong>WhatsApp Meta Message Templates:</strong> Pre-approved message formats required for WhatsApp bulk/promotional messages.</li>
+      <li><strong>Opt-In:</strong> Customer consent to receive promotional messages.</li>
+      <li><strong>Contact List:</strong> Collection of contacts uploaded or selected for campaigns.</li>
+      <li>Other glossary terms as per previous PRDs.</li>
+    </ul>
+  </section>
+
+  <div class="button-wrapper">
+    <button id="downloadPdfBtn">Download SaaS PRD with Marketing PDF</button>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  function addWrappedText(doc, text, x, y, maxWidth, lineHeight) {
+    const lines = doc.splitTextToSize(text, maxWidth);
+    for (const line of lines) {
+      if (y + lineHeight > doc.internal.pageSize.height - 40) {
+        doc.addPage();
+        y = 40;
+      }
+      doc.text(line, x, y);
+      y += lineHeight;
+    }
+    return y;
+  }
+
+  document.getElementById('downloadPdfBtn').addEventListener('click', () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+
+    const leftMargin = 40;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const maxLineWidth = pageWidth - leftMargin * 2;
+    const lineHeight = 18;
+    let y = 40;
+
+    doc.setFontSize(22);
+    doc.setTextColor('#34495e');
+    doc.setFont('helvetica', 'bold');
+    doc.text("WhatsApp CRM SaaS MVP - Product Requirements Document with Marketing", leftMargin, y);
+    y += lineHeight * 2;
+
+    function addSectionHeading(title) {
+      if (y + lineHeight*2 > doc.internal.pageSize.height - 40) {
+        doc.addPage();
+        y = 40;
+      }
+      doc.setFontSize(16);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor('#2c3e50');
+      doc.text(title, leftMargin, y);
+      y += lineHeight * 1.3;
+    }
+
+    function addParagraph(text) {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor('#222');
+      y = addWrappedText(doc, text, leftMargin, y, maxLineWidth, lineHeight);
+      y += lineHeight / 2;
+    }
+
+    function addBulletList(items) {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor('#222');
+      for (const item of items) {
+        if (typeof item === 'string') {
+          if (y + lineHeight > doc.internal.pageSize.height - 40) {
+            doc.addPage();
+            y = 40;
+          }
+          const bullet = "\u2022 ";
+          const lines = doc.splitTextToSize(item, maxLineWidth - 15);
+          doc.text(bullet + lines[0], leftMargin, y);
+          y += lineHeight;
+          for (let i = 1; i < lines.length; i++) {
+            if (y + lineHeight > doc.internal.pageSize.height - 40) {
+              doc.addPage();
+              y = 40;
+            }
+            doc.text("  " + lines[i], leftMargin + 10, y);
+            y += lineHeight;
+          }
+        } else if (typeof item === 'object' && Array.isArray(item)) {
+          y = addBulletList(item);
+        }
+      }
+      y += lineHeight / 2;
+      return y;
+    }
+
+    function addNumberedList(items) {
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor('#222');
+      let num = 1;
+      for (const item of items) {
+        if (y + lineHeight > doc.internal.pageSize.height - 40) {
+          doc.addPage();
+          y = 40;
+        }
+        const numStr = num.toString() + ". ";
+        const lines = doc.splitTextToSize(item, maxLineWidth - 20);
+        doc.text(numStr + lines[0], leftMargin, y);
+        y += lineHeight;
+        for (let i = 1; i < lines.length; i++) {
+          if (y + lineHeight > doc.internal.pageSize.height - 40) {
+            doc.addPage();
+            y = 40;
+          }
+          doc.text("   " + lines[i], leftMargin + 15, y);
+          y += lineHeight;
+        }
+        num++;
+      }
+      y += lineHeight / 2;
+      return y;
+    }
+
+    addSectionHeading("1. Project Overview");
+    addParagraph("The WhatsApp CRM SaaS MVP project delivers a multi-tenant, cloud-based customer relationship management platform integrated with WhatsApp messaging. It enables client organizations to manage customer interactions, automate replies, categorize intents, route tasks, and run targeted marketing campaigns using WhatsApp promotions. The platform supports role-based access, reporting, customer reviews, and subscription billing.");
+
+    addSectionHeading("2. Background & Problem Statement");
+    addParagraph("Businesses need scalable CRM solutions that integrate WhatsApp for both customer service and marketing outreach without infrastructure hassles. Integration with WhatsApp for automated communication and promotions is complex and costly. This SaaS platform simplifies deployment, automated interaction handling, and marketing campaign management.");
+
+    addSectionHeading("3. Goals and Objectives");
+    addBulletList([
+      "Provide multi-tenant CRM handling WhatsApp customer interactions and marketing campaigns.",
+      "Enable automated, lookup-driven bot replies.",
+      "Support ticket and quotation management per tenant.",
+      "Facilitate WhatsApp promotion campaigns targeting contacts uploaded or from existing customers.",
+      "Support management of WhatsApp Meta message templates used for promotions.",
+      "Role-based access with dedicated marketing users.",
+      "Subscription management and billing.",
+      "Customizable reporting and customer feedback.",
+      "Data isolation and tenant security."
+    ]);
+
+    addSectionHeading("4. User Roles and Personas");
+    addBulletList([
+      "Tenant Administrator: Manages tenant account, users, subscription, lookup tables, and message templates.",
+      "Customer Care Employee: Handles support tickets.",
+      "Sales Employee: Manages quotations.",
+      "Marketing Employee: Creates and manages WhatsApp promotional campaigns, uploads contact lists, and uses message templates.",
+      "Managers: Oversee their organizations’ teams and view reports.",
+      "Platform Administrator: Manages SaaS platform, subscriptions, and tenant onboarding.",
+      "Clients (End Customers): Recipients of support, sales communication and promotional campaigns via WhatsApp.",
+      "Bot: Multi-tenant aware automated reply engine using tenant lookup tables and templates."
+    ]);
+
+    addSectionHeading("5. Data Entities & Lookup Tables");
+    addBulletList([
+      "Tenant: Client organization subscribing to platform services.",
+      "Customer Entity: Stores customer profiles, preferences, interaction, and marketing consent status.",
+      "Lookup Tables: Per-tenant dynamic tables for services, products, issues, supporting bot categorization.",
+      "Subscription: Tenant plan and billing details.",
+      "Message Templates: WhatsApp Meta-approved templates stored per tenant for promotional and transactional messaging.",
+      "Marketing Contacts: Contacts uploaded by marketing users or existing customers marked as eligible for campaigns.",
+      "Data isolation ensures tenant data privacy and compliance."
+    ]);
+
+    addSectionHeading("6. Functional Requirements");
+    addNumberedList([
+      "Multi-Tenant WhatsApp Messaging: Receive customer messages routed appropriately per tenant.",
+      "Bot Automated Replies: Tenant-specific replies and categorization using lookup tables.",
+      "Ticket & Quotation Management: Segregated and role-based.",
+      "User and Role Management: Tenant admin manages tenant users with roles including marketing.",
+      "Subscription & Billing: Tenant subscription lifecycle management.",
+      "Reporting: Tenant and platform level reporting.",
+      "Customer Reviews: Post-interaction feedback collection.",
+      "Lookup Table & Template Management: Tenant admin can manage services, products, issues, and WhatsApp Meta message templates.",
+      "Promotional Campaigns:",
+      [
+        "Marketing users can create campaigns targeting uploaded contact lists or existing customers with marketing consent.",
+        "Manage campaign scheduling, message template selection, and batch sending.",
+        "Campaign performance tracking (delivery, read, response rates)."
+      ],
+      "Marketing Contacts Upload: Bulk upload via CSV or similar format with validation and opt-in management.",
+      "Notifications: Alert employees of assignments and campaign statuses.",
+      "Tenant Onboarding/Offboarding and Data Compliance: Smooth setup and secure data management aligned with regulations."
+    ]);
+
+    addSectionHeading("7. Non-Functional Requirements");
+    addBulletList([
+      "Scalable cloud infrastructure supporting multi-tenant use and large campaign message volumes.",
+      "High availability and disaster recovery.",
+      "Strong multi-tenant data isolation and security.",
+      "Performance: Maintain fast bot replies & reliable campaign delivery.",
+      "Rate limiting and throttling on campaign sends to comply with WhatsApp rules.",
+      "Responsive UI suitable for desktop and tablets.",
+      "Secure authentication supporting multi-tenant roles and optional SSO.",
+      "Audit logs for key actions including campaign sends and template changes.",
+      "Compliance with data protection laws (GDPR, CCPA)."
+    ]);
+
+    addSectionHeading("8. User Stories");
+    addBulletList([
+      "As a marketing employee, I want to upload contact lists or select existing customers to run targeted WhatsApp campaigns.",
+      "As a marketing employee, I want to manage WhatsApp Meta message templates to ensure compliance and messaging consistency.",
+      "As a marketing employee, I want to schedule campaigns and track delivery and engagement metrics.",
+      "As a tenant admin, I want to manage users including marketing roles and control access.",
+      "As a tenant manager, I want to view campaign performance reports and customer feedback.",
+      "As a client, I want to receive relevant promotions via WhatsApp with opt-in consent respected.",
+      "As a platform administrator, I want to monitor overall campaign volumes and ensure platform reliability."
+    ]);
+
+    addSectionHeading("9. Workflow");
+    addParagraph("1. Tenant subscribes and configures WhatsApp integration.<br />2. Marketing user uploads contacts or selects existing customers with consent.<br />3. Marketing user creates campaign selecting message template, recipients, and schedule.<br />4. Campaign messages sent respecting WhatsApp message templates and throttling rules.<br />5. Customers receive promotions via WhatsApp.<br />6. Campaign metrics collected and displayed.<br />7. Marketing and tenant managers monitor campaign effectiveness.<br />8. Regular support and sales ticket/quotation flows continue alongside campaigns.<br />9. Platform admin oversees SaaS operations and tenant compliance.");
+
+    addSectionHeading("10. Reporting and Analytics");
+    addBulletList([
+      "Campaign delivery, read, and response rates.",
+      "Customer opt-in/out status management and reporting.",
+      "Ticket and quotation metrics per tenant.",
+      "User performance and activity logs.",
+      "Template usage and updates audit trail.",
+      "Platform-wide campaign volume and revenue summaries."
+    ]);
+
+    addSectionHeading("11. Review and Feedback System");
+    addBulletList([
+      "Feedback collection including post-campaign satisfaction surveys.",
+      "Alerts on negative feedback to tenant marketing and support managers.",
+      "Aggregated tenant and platform level feedback reporting."
+    ]);
+
+    addSectionHeading("12. Assumptions and Dependencies");
+    addBulletList([
+      "WhatsApp Business API supports campaign sending using Meta message templates and multi-tenant routing.",
+      "Tenants will comply with opt-in marketing regulations.",
+      "Payment gateway integration for subscriptions and potential SMS/message billing.",
+      "Cloud infrastructure supports scalable batch messaging and data isolation.",
+      "Bot categorization uses tenant lookup tables enhanced by message templates.",
+      "Authentication supports multi-tenant roles including marketing."
+    ]);
+
+    addSectionHeading("13. Glossary");
+    addBulletList([
+      "Marketing Employee: Role responsible for campaign management, contacts, and templates.",
+      "Campaign: A WhatsApp promotional messaging effort targeting contacts.",
+      "WhatsApp Meta Message Templates: Pre-approved message formats required for WhatsApp bulk/promotional messages.",
+      "Opt-In: Customer consent to receive promotional messages.",
+      "Contact List: Collection of contacts uploaded or selected for campaigns.",
+      "Other glossary terms as per previous PRDs."
+    ]);
+
+    doc.save("WhatsApp-CRM-PRD-SaaS-Marketing.pdf");
+  });
+</script>
+</body>
+</html>
+
