@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ControllerAdvice(basePackages = "com.profdev.crm.controller")
+// This class handles exceptions globally for all controllers in the specified package
 public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
