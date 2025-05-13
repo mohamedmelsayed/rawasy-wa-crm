@@ -1,0 +1,422 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 4466
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 18 Tf
+20.6999999999999993 TL
+0.161 0.502 0.725 rg
+28.3464566929133888 813.5435433070865656 Td
+(WhatsApp CRM MVP Project Idea) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+28.3464566929133888 779.5277952755905062 Td
+(Project Description) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0.173 0.243 0.314 rg
+28.3464566929133888 751.1813385826771992 Td
+(This MVP CRM platform is designed to integrate WhatsApp messaging with automated bot replies to) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0.173 0.243 0.314 rg
+28.3464566929133888 731.3388188976377933 Td
+(categorize customer interests. It routes tickets or quotations to relevant teams, supports different user) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0.173 0.243 0.314 rg
+28.3464566929133888 711.4962992125983874 Td
+(roles, provides reporting, and allows customer reviews.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+28.3464566929133888 677.480551181102328 Td
+(Core Features) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 649.1340944881889072 Td
+(- Client sends WhatsApp messages to the system.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 629.291574803149615 Td
+(- Bot processes the message, replies, and categorizes interest.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 609.4490551181102092 Td
+(- If an issue, create a support ticket assigned to customer care employees.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 589.6065354330708033 Td
+(- If a quotation request, sales employees handle drafting the quotation.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 569.7640157480313974 Td
+(- Support and Sales teams have managers who get reports.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 549.9214960629921052 Td
+(- Managers can view reports summarizing team activities.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 530.0789763779526993 Td
+(- Customer reviews and feedback feature integrated.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+28.3464566929133888 496.0632283464566399 Td
+(Proposed Architecture & Plan) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 467.716771653543276 Td
+(- Backend: User management, message handling, ticket & quotation management,) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+51.0236220472441033 447.8742519685038701 Td
+(  reporting APIs, review systems.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 428.0317322834645211 Td
+(- Frontend: Dashboards for employees and managers, ticket and quotation views,) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+51.0236220472441033 408.1892125984251152 Td
+(  report pages, reviews display.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 388.3466929133857661 Td
+(- WhatsApp Integration: Use a WhatsApp Business API or service like Twilio to receive) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+51.0236220472441033 368.5041732283464171 Td
+(  client messages and send bot replies.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 348.6616535433070112 Td
+(- Bot Logic: Use rules or NLP to categorize messages and automate replies.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+28.3464566929133888 314.6459055118109518 Td
+(Next Steps) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 286.2994488188975311 Td
+(- Implement WhatsApp webhook for message reception.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 266.4569291338582389 Td
+(- Develop bot reply and categorization logic.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 246.614409448818833 Td
+(- Create backend APIs for managing tickets, quotations, users, and reports.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 226.7718897637794271 Td
+(- Build a responsive frontend for team members and managers.) Tj
+ET
+BT
+/F1 14 Tf
+16.0999999999999979 TL
+0.173 0.243 0.314 rg
+34.0157480314960665 206.9293700787401349 Td
+(- Enable customer review submission and visualization.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R ]
+/Count 1
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/F5 9 0 R
+/F6 10 0 R
+/F7 11 0 R
+/F8 12 0 R
+/F9 13 0 R
+/F10 14 0 R
+/F11 15 0 R
+/F12 16 0 R
+/F13 17 0 R
+/F14 18 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+19 0 obj
+<<
+/Producer (jsPDF 2.5.1)
+/CreationDate (D:20250513085126+04'00')
+>>
+endobj
+20 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000004670 00000 n 
+0000006487 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000004727 00000 n 
+0000004852 00000 n 
+0000004982 00000 n 
+0000005115 00000 n 
+0000005252 00000 n 
+0000005375 00000 n 
+0000005504 00000 n 
+0000005636 00000 n 
+0000005772 00000 n 
+0000005900 00000 n 
+0000006027 00000 n 
+0000006156 00000 n 
+0000006289 00000 n 
+0000006391 00000 n 
+0000006735 00000 n 
+0000006821 00000 n 
+trailer
+<<
+/Size 21
+/Root 20 0 R
+/Info 19 0 R
+/ID [ <EE8B9E6093A7B9F9C9CDF4DA517252D7> <EE8B9E6093A7B9F9C9CDF4DA517252D7> ]
+>>
+startxref
+6925
+%%EOF

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WhatsApp CRM MVP Project Idea</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background: #f9f9f9;
+    color: #333;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  h1 {
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 8px;
+  }
+  section {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  button {
+    margin-top: 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  button:hover {
+    background-color: #3498db;
+  }
+</style>
+</head>
+<body>
+  <h1>WhatsApp CRM MVP Project Idea</h1>
+  <section>
+    <h2>Project Description</h2>
+    <p>
+      This MVP CRM platform is designed to integrate WhatsApp messaging with automated bot replies to categorize customer interests. It routes tickets or quotations to relevant teams, supports different user roles, provides reporting, and allows customer reviews.
+    </p>
+  </section>
+  <section>
+    <h2>Core Features</h2>
+    <ul>
+      <li>Client sends WhatsApp messages to the system.</li>
+      <li>Bot processes the message, replies, and categorizes interest.</li>
+      <li>If an issue, create a support ticket assigned to customer care employees.</li>
+      <li>If a quotation request, sales employees handle drafting the quotation.</li>
+      <li>Support and Sales teams have managers who get reports.</li>
+      <li>Managers can view reports summarizing team activities.</li>
+      <li>Customer reviews and feedback feature integrated.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Proposed Architecture & Plan</h2>
+    <ul>
+      <li><strong>Backend:</strong> User management, message handling, ticket & quotation management, reporting APIs, review systems.</li>
+      <li><strong>Frontend:</strong> Dashboards for employees and managers, ticket and quotation views, report pages, reviews display.</li>
+      <li><strong>WhatsApp Integration:</strong> Use a WhatsApp Business API or service like Twilio to receive client messages and send bot replies.</li>
+      <li><strong>Bot Logic:</strong> Use rules or NLP to categorize messages and automate replies.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Next Steps</h2>
+    <ul>
+      <li>Implement WhatsApp webhook for message reception.</li>
+      <li>Develop bot reply and categorization logic.</li>
+      <li>Create backend APIs for managing tickets, quotations, users, and reports.</li>
+      <li>Build a responsive frontend for team members and managers.</li>
+      <li>Enable customer review submission and visualization.</li>
+    </ul>
+  </section>
+  <button id="downloadPdf">Download PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    document.getElementById('downloadPdf').addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      let y = 10;
+      doc.setFontSize(18);
+      doc.setTextColor("#2980b9");
+      doc.text("WhatsApp CRM MVP Project Idea", 10, y);
+      y += 12;
+
+      doc.setFontSize(14);
+      doc.setTextColor("#2c3e50");
+      doc.text("Project Description", 10, y);
+      y += 10;
+
+      doc.setFontSize(12);
+      const description = "This MVP CRM platform is designed to integrate WhatsApp messaging with automated bot replies to categorize customer interests. It routes tickets or quotations to relevant teams, supports different user roles, provides reporting, and allows customer reviews.";
+      y = doc.splitTextToSize(description, 190, {}).reduce((curY, line) => {
+        doc.text(line, 10, curY);
+        return curY + 7;
+      }, y) + 5;
+
+      doc.setFontSize(14);
+      doc.setTextColor("#2c3e50");
+      doc.text("Core Features", 10, y);
+      y += 10;
+
+      const features = [
+        "Client sends WhatsApp messages to the system.",
+        "Bot processes the message, replies, and categorizes interest.",
+        "If an issue, create a support ticket assigned to customer care employees.",
+        "If a quotation request, sales employees handle drafting the quotation.",
+        "Support and Sales teams have managers who get reports.",
+        "Managers can view reports summarizing team activities.",
+        "Customer reviews and feedback feature integrated."
+      ];
+      features.forEach(feature => {
+        const splitLine = doc.splitTextToSize(feature, 185);
+        doc.text("- " + splitLine[0], 12, y);
+        y += 7;
+        for (let i=1; i<splitLine.length; i++) {
+          doc.text("  " + splitLine[i], 18, y);
+          y += 7;
+        }
+      });
+      y += 5;
+
+      doc.setFontSize(14);
+      doc.setTextColor("#2c3e50");
+      doc.text("Proposed Architecture & Plan", 10, y);
+      y += 10;
+
+      const architecture = [
+        "Backend: User management, message handling, ticket & quotation management, reporting APIs, review systems.",
+        "Frontend: Dashboards for employees and managers, ticket and quotation views, report pages, reviews display.",
+        "WhatsApp Integration: Use a WhatsApp Business API or service like Twilio to receive client messages and send bot replies.",
+        "Bot Logic: Use rules or NLP to categorize messages and automate replies."
+      ];
+      architecture.forEach(item => {
+        const splitLine = doc.splitTextToSize(item, 185);
+        doc.text("- " + splitLine[0], 12, y);
+        y += 7;
+        for (let i=1; i<splitLine.length; i++) {
+          doc.text("  " + splitLine[i], 18, y);
+          y += 7;
+        }
+      });
+      y += 5;
+
+      doc.setFontSize(14);
+      doc.setTextColor("#2c3e50");
+      doc.text("Next Steps", 10, y);
+      y += 10;
+
+      const nextSteps = [
+        "Implement WhatsApp webhook for message reception.",
+        "Develop bot reply and categorization logic.",
+        "Create backend APIs for managing tickets, quotations, users, and reports.",
+        "Build a responsive frontend for team members and managers.",
+        "Enable customer review submission and visualization."
+      ];
+      nextSteps.forEach(step => {
+        doc.text("- " + step, 12, y);
+        y += 7;
+      });
+
+      doc.save("project-ieda.pdf");
+    });
+  </script>
+</body>
+</html>
+
