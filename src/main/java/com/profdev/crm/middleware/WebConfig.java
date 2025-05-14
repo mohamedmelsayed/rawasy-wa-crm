@@ -10,8 +10,13 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private TenantSubscriptionInterceptor tenantSubscriptionInterceptor;
 
+    @Autowired
+    private ApplicationAuthInterceptor applicationAuthInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(applicationAuthInterceptor)
+                .addPathPatterns("/api/tenants/**"); // Only protect tenant routes for now
         registry.addInterceptor(tenantSubscriptionInterceptor)
                 .addPathPatterns("/api/nopath/**"); // Apply to all API endpoints
     }

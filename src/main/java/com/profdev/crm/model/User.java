@@ -39,12 +39,17 @@ public class User {
     private Tenant tenant;
 
     @OneToMany(mappedBy = "createdBy")
+    @JsonIgnore
     private java.util.List<Campaign> campaigns;
 
     @OneToMany(mappedBy = "createdBy")
+    
+    @JsonIgnore
     private java.util.List<Ticket> tickets;
 
     @OneToMany(mappedBy = "createdBy")
+    
+    @JsonIgnore
     private java.util.List<Quotation> quotations;
     // Add role field later as needed
 
