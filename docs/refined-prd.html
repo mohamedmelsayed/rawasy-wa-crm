@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rawasy WhatsApp CRM SaaS - Refined Product Requirements Document</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background: #fefefe; color: #222; line-height: 1.5; }
+    h1, h2, h3 { color: #2c3e50; margin-top: 1.2em; }
+    h1 { border-bottom: 3px solid #34495e; padding-bottom: 10px; }
+    section { padding: 15px 0; border-bottom: 1px solid #ddd; }
+    ul { margin-left: 20px; list-style-type: disc; }
+    ol { margin-left: 20px; list-style-type: decimal; }
+    .note { color: #888; font-size: 0.95em; }
+  </style>
+</head>
+<body>
+  <h1>Rawasy WhatsApp CRM SaaS - Product Requirements Document (PRD)</h1>
+
+  <section>
+    <h2>1. Project Overview</h2>
+    <p>
+      Rawasy WhatsApp CRM is a multi-tenant SaaS platform for customer relationship management, marketing automation, and customer support via WhatsApp Cloud API. It provides robust customer, ticket, campaign, and user management, with strong data isolation and extensibility.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Architecture & Technology</h2>
+    <ul>
+      <li>Backend: Java 17, Spring Boot, JPA/Hibernate, MySQL</li>
+      <li>API: RESTful, secured with JWT and custom app key middleware</li>
+      <li>Frontend: (Not included in this repo, but API-ready for SPA/React/Angular)</li>
+      <li>Multi-tenancy: Data isolation at the entity level (Tenant, User, Customer, etc.)</li>
+      <li>Extensible: Modular codebase with DTOs, services, and repositories</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Key Features</h2>
+    <ul>
+      <li>Multi-tenant customer, ticket, and campaign management</li>
+      <li>WhatsApp Cloud API integration for messaging and automation</li>
+      <li>Role-based access: Admin, Marketing, Sales, Support, Bot, etc.</li>
+      <li>Marketing campaigns with contact upload, consent, and template management</li>
+      <li>Automated bot replies using tenant-specific lookup tables</li>
+      <li>Subscription and billing management (planned)</li>
+      <li>Comprehensive reporting and analytics</li>
+      <li>Secure authentication and application-level middleware (X-App-Key)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Data Model Overview</h2>
+    <ul>
+      <li><b>Tenant</b>: Organization, with WhatsApp API config, users, customers, etc.</li>
+      <li><b>User</b>: Linked to tenant, with roles and department/supervisor structure</li>
+      <li><b>Customer</b>: Profile, consent, and marketing group membership</li>
+      <li><b>Campaign</b>: WhatsApp marketing, linked to contacts and templates</li>
+      <li><b>Ticket/Quotation</b>: Support and sales flows, per tenant</li>
+      <li><b>LookupTable</b>: Dynamic, per-tenant, for bot categorization</li>
+      <li><b>MessageTemplate</b>: WhatsApp Meta-approved, per tenant</li>
+      <li><b>MarketingGroup</b>: Segments for campaign targeting</li>
+      <li><b>Subscription</b>: Tenant plan and billing (future)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Security & Middleware</h2>
+    <ul>
+      <li>JWT-based authentication for users</li>
+      <li>Custom <b>X-App-Key</b> middleware (Spring Interceptor) for application-level access control</li>
+      <li>Profile-based configuration (application-development/production.properties)</li>
+      <li>Validation on DTOs (e.g., password length, email format)</li>
+      <li>Role checks and tenant isolation in all service layers</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Functional Requirements</h2>
+    <ol>
+      <li>Multi-tenant WhatsApp messaging and campaign management</li>
+      <li>Automated bot replies using per-tenant lookup tables</li>
+      <li>Ticket and quotation management, segregated by tenant and role</li>
+      <li>User, department, and role management (including supervisor chains)</li>
+      <li>Marketing contact upload (CSV), consent management, and group targeting</li>
+      <li>WhatsApp Meta message template management</li>
+      <li>Subscription and billing lifecycle (future)</li>
+      <li>Comprehensive reporting and analytics</li>
+      <li>Feedback and review collection per tenant</li>
+      <li>Notifications for assignments and campaign status</li>
+      <li>Secure onboarding/offboarding and GDPR compliance</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>7. Non-Functional Requirements</h2>
+    <ul>
+      <li>Scalable, cloud-ready, and modular backend</li>
+      <li>Strong data isolation and security for all tenants</li>
+      <li>Performance: Fast bot replies, reliable campaign delivery</li>
+      <li>Rate limiting/throttling for WhatsApp API compliance</li>
+      <li>Audit logs and error handling (middleware/global exception handler)</li>
+      <li>Profile-based configuration for dev/prod environments</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>8. User Stories</h2>
+    <ul>
+      <li>As a marketing user, I can upload contacts and run WhatsApp campaigns to consented customers</li>
+      <li>As a tenant admin, I can manage users, roles, and message templates</li>
+      <li>As a support/sales user, I can manage tickets and quotations for my tenant</li>
+      <li>As a platform admin, I can monitor tenants, subscriptions, and system health</li>
+      <li>As a customer, I receive relevant WhatsApp messages and can opt in/out of marketing</li>
+      <li>As a bot, I reply to customer messages using tenant-specific lookup tables</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>9. Glossary</h2>
+    <ul>
+      <li><b>Tenant</b>: A client organization using the CRM platform</li>
+      <li><b>Campaign</b>: A WhatsApp marketing effort targeting a group of contacts</li>
+      <li><b>Message Template</b>: Pre-approved WhatsApp message format</li>
+      <li><b>Lookup Table</b>: Dynamic, per-tenant data for bot categorization</li>
+      <li><b>Marketing Group</b>: Segment of customers for targeted campaigns</li>
+      <li><b>X-App-Key</b>: Custom header for application-level API access</li>
+      <li><b>Role</b>: User's permission level (Admin, Marketing, Sales, Support, Bot)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>10. Notes & Future Work</h2>
+    <ul>
+      <li>Subscription and billing integration is planned but not yet implemented</li>
+      <li>Frontend SPA and mobile apps can be built on top of the REST API</li>
+      <li>Further extensibility for integrations (e.g., payment gateways, analytics)</li>
+      <li>More granular audit logging and compliance features</li>
+    </ul>
+    <p class="note">Document generated/refined on May 15, 2025. For latest updates, see the README.md and docs/ folder.</p>
+  </section>
+</body>
+</html>
